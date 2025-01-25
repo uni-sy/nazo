@@ -3,13 +3,13 @@ let solvedPuzzles = 0; // 解いた問題数
 let reachedPuzzle9 = false; // 問9に進んだかどうか
 const puzzles = [
     { title: "問題1",question: "問題1", correctAnswer: "1", hint: "ヒント1", image: "" },
-    { title: "問題2",question: "問題2", correctAnswer: "2", hint: "ヒント2", image: "" },
+    { title: "問題二",question: "問題2", correctAnswer: "2", hint: "ヒント2", image: "" },
     { title: "問題3",question: "問題3", correctAnswer: "3", hint: "ヒント3", image: "" },
     { title: "問題4",question: "問題4", correctAnswer: "4", hint: "ヒント4", image: "" },
-    { title: "問題5",question: "きがあうときに灰色のひらがなの上向きをつなげてよもう", correctAnswer: "5", hint: "ヒント5", image: "" },
+    { title: "問題5",question: "問題を解こう", correctAnswer: "5", hint: "ヒント5", image: "" },
     { title: "問題6",question: "問題6", correctAnswer: "6", hint: "ヒント6", image: "" },
-    { title: "問題7",question: "問題7", correctAnswer: "7", hint: "ヒント7", image: "" },
-    { title: "問題8",question: "すべての問題から仲間外れを見つけ出し、\nこの謎の指示に従おう", correctAnswer: "8", hint: "ヒント8", image: "" },
+    { title: "問題7",question: "問題から仲間外れを見つけ出し、この謎の指示に従おう", correctAnswer: "7", hint: "ヒント7", image: "" },
+    { title: "問題8",question: "きの高さが合うとき \n灰色のひらがなの上向きをつなげて指示に従おう", correctAnswer: "8", hint: "はたのうえをよめ", image: "" },
     { title: "問題9",question: "問題9", correctAnswer: "9", hint: "ヒント9", image: "" } // 9問目
 ];
 
@@ -150,16 +150,16 @@ function showExplanationScreen() {
 }
 // 配置するひらがなのデータ
 const hiraganaData = [
-    { text: 'あ', top: 25, left: 25, fontSize: '30px', rotate: 30 },
-    { text: 'い', top: 200, left: 150, fontSize: '30px', rotate: 45 }, // 45度回転
-    { text: 'き', top: 301, left: 221, fontSize: '25px', rotate: 0 }, // -30度回転
-    { text: 'え', top: 400, left: 450, fontSize: '30px', rotate: 90 }, // 90度回転
-    { text: 'お', top: 500, left: 600, fontSize: '35px', rotate: 135 }, // 135度回転
+    { text: 'あ', top: -495, right: 270, fontSize: '30px', rotate: 30 },
+    { text: 'い', top: 0, right: 270, fontSize: '30px', rotate: 45 }, // 45度回転
+    { text: 'き', top: 302, left: 61, fontSize: '25px', rotate: 0 }, // -30度回転
+    { text: 'え', top: -400, left: -450, fontSize: '30px', rotate: 90 }, // 90度回転
+    { text: 'お', top: 80, left: -270, fontSize: '35px', rotate: 135 }, // 135度回転
     { text: 'か', top: 150, left: 600, fontSize: '35px', rotate: 0 },
-    { text: 'う', top: 250, left: 100, fontSize: '30px', rotate: 180 }, // 180度回転
-    { text: 'く', top: 350, left: 200, fontSize: '35px', rotate: -60 }, // -60度回転
-    { text: 'け', top: 450, left: 350, fontSize: '30px', rotate: 30 }, // 30度回転
-    { text: 'こ', top: 550, left: 500, fontSize: '40px', rotate: -90 }, // -90度回転
+    { text: 'う', top: 250, left: 23, fontSize: '30px', rotate: 180 }, // 180度回転
+    { text: 'く', top: 350, left: 23, fontSize: '35px', rotate: -60 }, // -60度回転
+    { text: 'け', top: 0, left: 60, fontSize: '30px', rotate: 30 }, // 30度回転
+    { text: 'こ', top: 0, left: 0, fontSize: '40px', rotate: -90 }, // -90度回転
 ];
 
 // ひらがなを指定された位置とサイズでページに表示
