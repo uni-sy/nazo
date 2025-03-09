@@ -2,21 +2,22 @@ let currentPuzzle = 1;
 let solvedPuzzles = 0; // 解いた問題数
 let reachedPuzzle9 = false; // 問9に進んだかどうか
 const puzzles = [
-    { title: "問題1",question: "問題1", correctAnswer: "1", hint: "ヒント1", image: "" },
-    { title: "問題2",question: "問題2", correctAnswer: "2", hint: "ヒント2", image: "" },
-    { title: "問題3",question: "問題3", correctAnswer: "3", hint: "ヒント3", image: "" },
-    { title: "問題4",question: "問題4", correctAnswer: "4", hint: "ヒント4", image: "" },
-    { title: "問題5",question: "きがあうときに灰色のひらがなの上向きをつなげてよもう", correctAnswer: "5", hint: "ヒント5", image: "" },
+    { title: "問題1",question: "赤つないで読もう", correctAnswer: "1", hint: "ヒント1", image: "7.png" },
+    { title: "問題二",question: "謎を解け", correctAnswer: "2", hint: "ヒント2", image: "スクリーンショット 2024-06-12 185222.png" },
+    { title: "問題3",question: "➡をつなげ", correctAnswer: "3", hint: "ヒント3", image: "3-1.png" },
+    { title: "問題4",question: "ほしを作って△を読もう", correctAnswer: "4", hint: "ヒント4", image: "" },
+    { title: "問題5",question: "問題から仲間外れを見つけ出し、この謎の指示に従おう", correctAnswer: "5", hint: "ヒント5", image: "" },
     { title: "問題6",question: "問題6", correctAnswer: "6", hint: "ヒント6", image: "" },
-    { title: "問題7",question: "問題7", correctAnswer: "7", hint: "ヒント7", image: "" },
-    { title: "問題8",question: "すべての問題から仲間外れを見つけ出し、\nこの謎の指示に従おう", correctAnswer: "8", hint: "ヒント8", image: "" },
+    { title: "問題7",question: "none", correctAnswer: "7", hint: "ヒント7", image: "7.png" },
+    { title: "問題8",question: "「は」から、灰色のひらがなの上向きをつなげて指示に従おう", correctAnswer: "8", hint: "はたのうえをよめ", image: "ra1.jpg" },
     { title: "問題9",question: "問題9", correctAnswer: "9", hint: "ヒント9", image: "" } // 9問目
 ];
 
 let answers = {}; // 各問題に対する回答を記録
 let hintsDisplayed = {}; // ヒントが表示されたかどうかを記録
 let hintCount = 0; // ヒント表示回数をカウント
-
+let startTime;
+let timerInterval;
 
 // 問題選択メニューの表示/非表示を切り替える
 function toggleMenu() {
@@ -27,22 +28,66 @@ function toggleMenu() {
     menuContainer.style.display = isMenuVisible ? 'none' : 'flex';
 }
 
+    //スタート関数
+document.addEventListener("DOMContentLoaded", function() {
+    // スタートボタンの処理を関数にまとめる
+    function startGame() {
+        document.getElementById("start-screen").style.display = "none";
+        document.getElementById("game-screen").style.display = "block";
+        document.getElementById("game-container").style.display = "block";
+
+        startTime = Date.now();
+        timerInterval = setInterval(updateTimer, 1000);
+    }
+
+    // グローバルに関数を公開
+    window.startGame = startGame;
+});
+
+
+function updateTimer() {
+    const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+    const minutes = String(Math.floor(elapsedTime / 60)).padStart(2, "0");
+    const seconds = String(elapsedTime % 60).padStart(2, "0");
+    document.getElementById("timer").textContent = `${minutes}:${seconds}`;
+}
+
+// ゲームクリア時に時間を表示
+function gameClear() {
+    clearInterval(timerInterval);
+    const finalTime = document.getElementById("timer").textContent;
+    alert(`パーフェクトクリア！かかった時間: ${finalTime}`);
+}
+
 // 問題の表示
 function displayPuzzle() {
     // ヒントを消す
     document.getElementById('message').textContent = '';
 
     const puzzle = puzzles[currentPuzzle - 1];
-      // 題名を表示
+    // 題名を表示
     document.getElementById('puzzle-title').textContent = puzzle.title;
+    // 問題3のテキストに改行を追加
+    if (currentPuzzle === 3) {
+       const rotatedText = document.createElement('div');
+        rotatedText.innerHTML = "↓<br>を<br>つ<br>な<br>げ";  // <br> タグを使って改行
+     rotatedText.style.transform = 'rotate(90deg)';
+       rotatedText.style.transformOrigin = 'center';
+      rotatedText.style.margin = '20px auto';
+      rotatedText.style.display = 'inline-block';
+     document.getElementById('puzzle-text').innerHTML = '';
+      document.getElementById('puzzle-text').appendChild(rotatedText);
+    } else {
     document.getElementById('puzzle-text').textContent = puzzle.question;
-
+}
     // 画像が存在する場合、画像を表示
     if (puzzle.image) {
         const imgElement = document.createElement('img');
         imgElement.src = puzzle.image;
         imgElement.alt = "問題の画像";
         imgElement.style.width = '100%';
+        imgElement.style.cursor = 'pointer';
+
         document.getElementById('puzzle-text').appendChild(imgElement);
     }
 
@@ -65,6 +110,7 @@ function displayPuzzle() {
 
     updateButtons();
 }
+
 
 // ヒントを表示する関数
 function showHint() {
@@ -130,7 +176,7 @@ function showExplanationScreen() {
     explanationContainer.style.display = 'block'; // 解説画面を表示
 
     const explanations = [
-        "問題1の解説",
+        "ラーメン",
         "問題2の解説",
         "問題3の解説",
         "問題4の解説",
@@ -150,16 +196,23 @@ function showExplanationScreen() {
 }
 // 配置するひらがなのデータ
 const hiraganaData = [
-    { text: 'あ', top: 25, left: 25, fontSize: '30px', rotate: 30 },
-    { text: 'い', top: 200, left: 150, fontSize: '30px', rotate: 45 }, // 45度回転
-    { text: 'き', top: 301, left: 221, fontSize: '25px', rotate: 0 }, // -30度回転
-    { text: 'え', top: 400, left: 450, fontSize: '30px', rotate: 90 }, // 90度回転
-    { text: 'お', top: 500, left: 600, fontSize: '35px', rotate: 135 }, // 135度回転
-    { text: 'か', top: 150, left: 600, fontSize: '35px', rotate: 0 },
-    { text: 'う', top: 250, left: 100, fontSize: '30px', rotate: 180 }, // 180度回転
-    { text: 'く', top: 350, left: 200, fontSize: '35px', rotate: -60 }, // -60度回転
-    { text: 'け', top: 450, left: 350, fontSize: '30px', rotate: 30 }, // 30度回転
-    { text: 'こ', top: 550, left: 500, fontSize: '40px', rotate: -90 }, // -90度回転
+    { text: 'は', top: 130, left: -357, fontSize: '20px', rotate: 90 },
+    { text: 'い', top: 150, left: -3, fontSize: '30px', rotate: 45 }, // 45度回転
+    { text: 'A', top: 351, left: 81, fontSize: '30px', rotate: 270 }, // -30度回転
+    { text: 'え', top: -230, left: -50, fontSize: '30px', rotate: 200 }, // 90度回転
+    { text: 'お', top: 90, left: -200, fontSize: '25px', rotate: 13 }, // 135度回転
+    { text: 'た', top: -90, left: 158, fontSize: '25px', rotate: 180 },
+    { text: 'う', top: 880, left: -50, fontSize: '30px', rotate: 0 }, // 180度回転
+    { text: 'よ', top: -188, left: -287, fontSize: '35px', rotate: 87 }, // -60度回転
+    { text: 'め', top: 0, left: 40, fontSize: '30px', rotate: 30 }, // 30度回転
+    { text: 'の', top: 365, left: 340, fontSize: '24px', rotate: 230 }, // -90度回転
+    { text: 'さ', top: 290, left: 68, fontSize: '25px', rotate: 280 },
+    { text: '？', top: 200, left: 100, fontSize: '25px', rotate: -13},
+    { text: 'M', top: 200, left: 100, fontSize: '28px', rotate: 23},
+    { text: '魑', top: 250, left: 150, fontSize: '29px', rotate:335},
+    { text: 'へ', top: -90, left: -320, fontSize: '26px', rotate: 135},
+    { text: '！', top:200, left: 40, fontSize: '30px', rotate: 23},
+    { text: 'D', top: 300, left: 30, fontSize: '20px', rotate: 345}
 ];
 
 // ひらがなを指定された位置とサイズでページに表示
@@ -208,7 +261,7 @@ function checkAnswer() {
         // 2秒後に〇を消す
         setTimeout(() => {
             correctSymbol.classList.add('hidden');
-        }, 2000);
+        }, 1500);
 
         solvedPuzzles++; // 解いた問題数を増加
         updateButtons();
@@ -267,11 +320,61 @@ function showNormalClearScreen() {
 
 // パーフェクトクリア画面を表示
 function showPerfectClearScreen() {
-    document.getElementById('clear-message').textContent = "パーフェクトクリア！\nおめでとう！";
-    document.getElementById('game-container').style.display = 'none';
-    document.getElementById('clear-screen').style.display = 'block';
-    document.getElementById('retry-button').style.display = 'none'; // もう一度挑戦するボタンを非表示
+    clearInterval(timerInterval); // タイマー停止
+    const finalTime = document.getElementById("timer").textContent; // 最終タイム取得
+    document.getElementById('hiragana-container').style.display = 'none';
+    // クリア画面を作成
+    const clearScreen = document.createElement("div");
+    clearScreen.id = "perfect-clear-screen";
+    clearScreen.style.position = "fixed";
+    clearScreen.style.top = "0";
+    clearScreen.style.left = "0";
+    clearScreen.style.width = "100%";
+    clearScreen.style.height = "100%";
+    clearScreen.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+    clearScreen.style.display = "flex";
+    clearScreen.style.flexDirection = "column";
+    clearScreen.style.justifyContent = "center";
+    clearScreen.style.alignItems = "center";
+    clearScreen.style.textAlign = "center";
+    clearScreen.style.zIndex = "1000";
+
+    // メッセージ表示
+    const message = document.createElement("h1");
+    message.textContent = "パーフェクトクリア！";
+    message.style.color = "white";
+    message.style.fontSize = "3rem";
+    message.style.marginBottom = "20px";
+
+    // タイム表示
+    const timeDisplay = document.createElement("p");
+    timeDisplay.textContent = `かかった時間: ${finalTime}`;
+    timeDisplay.style.color = "yellow";
+    timeDisplay.style.fontSize = "2rem";
+
+    // 解説ボタン
+    const explanationButton = document.createElement("button");
+    explanationButton.textContent = "解説を見る";
+    explanationButton.style.fontSize = "1.5rem";
+    explanationButton.style.padding = "10px 30px";
+    explanationButton.style.cursor = "pointer";
+    explanationButton.style.border = "none";
+    explanationButton.style.backgroundColor = "#ffcc00";
+    explanationButton.style.color = "black";
+    explanationButton.style.borderRadius = "10px";
+    explanationButton.style.marginTop = "20px";
+    explanationButton.addEventListener("click", function() {
+        clearScreen.remove(); // クリア画面を削除
+        showExplanationScreen(); // 解説画面に遷移
+    });
+
+    // 画面に要素を追加
+    clearScreen.appendChild(message);
+    clearScreen.appendChild(timeDisplay);
+    clearScreen.appendChild(explanationButton);
+    document.body.appendChild(clearScreen);
 }
+
 
 // ゲームのリセット処理
 function resetGame() {
