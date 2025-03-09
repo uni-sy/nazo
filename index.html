@@ -3,65 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>謎解き</title>
-    <link rel="stylesheet" href="styles.css">
-  <div id="container">
-    <!-- ひらがなを表示するためのdiv -->
-    <div id="hiragana-container"></div>
-</div>
-
-<!-- JavaScriptを挿入 -->
-<script src="script.js"></script>
-
+    <title>謎解きゲーム</title>
+    <link rel="stylesheet" href="styles.css"> <!-- CSSを適用 -->
 </head>
 <body>
+    <div id="start-screen">
+    <h1>謎解きを開始します</h1>
+    <button id="start-button" onclick="startGame()">スタート</button>
 
+</div>
 <div id="game-container">
-    <button id=
     <button id="menu-toggle" onclick="toggleMenu()">問題選択</button>
-
-  <!-- ギブアップ確認ボタン（非表示） -->
-      <!-- ギブアップボタン -->
-<button id="give-up-btn" onclick="giveUp()">🏳</button>
+    <!-- ギブアップ確認ボタン（非表示） -->
+    <button id="give-up-btn" onclick="giveUp()">🏳</button>
     <div id="give-up-confirmation">
         <p>本当にギブアップしますか？</p>
         <button id="yes-btn" onclick="confirmGiveUp()">🏳はい</button>
         <button id="no-btn" onclick="cancelGiveUp()">いいえ</button>
     </div>
     <div id="menu-container">
-
         <!-- ボタンは動的に生成されます -->
     </div>
+
+<div id="game-screen" style="display:none;">
+    <div id="timer">00:00</div>
+    <!-- 他のゲーム要素 -->
+</div>
     <h1>謎解き</h1>
     <div id="progress"></div>
     <div id="puzzle-container">
-      <!-- 問題の題名を表示する場所 -->
-    <div id="puzzle-title" style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">         </div>
-
-     <!-- 問題文を表示する場所 -->
-    <div id="puzzle-text"></div>
+        <!-- 問題の題名を表示する場所 -->
+        <div id="puzzle-title" style="font-size: 20px; font-weight: bold; margin-bottom: 10px;"></div>
+        <!-- 問題文を表示する場所 -->
+        <div id="puzzle-text"></div>
         <p id="puzzle-text"></p>
-        <input type="text" id="answer-input" placeholder="答えを入力してください">
+        <input type="text" id="answer-input" placeholder="ここに答えを入力してください">
         <button id="answer-button" onclick="checkAnswer()">解答する</button>
         <button id="next-btn" onclick="nextPuzzle()" style="display: none;">次の問題</button>
-        <button id="hint-btn" style="display: none;" onclick="showHint()">ヒント</button> <!-- 固定ヒントボタン -->
+        <button id="hint-btn" style="display: none;" onclick="showHint()">ヒント</button>
     </div>
     <p id="message"></p>
 </div>
-
-
 
 <div id="clear-screen">
     <h2 id="clear-message">ゲームクリア！<pre>おめでとう！</h2>
     <button id="retry-button" onclick="resetGame()">もう一度挑戦する</button>
 </div>
-  
+
+<!-- ひらがなを表示するためのdiv -->
+<div id="hiragana-container"></div>
+
 <!-- 解説画面 -->
 <div id="explanation-container" style="display: none;">
     <!-- 解説内容がここに表示される -->
 </div>
 
-<script src="scripts.js"></script>
-
+    <script src="script.js"></script> <!-- JavaScriptを適用 -->
 </body>
 </html>
