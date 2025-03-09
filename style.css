@@ -8,21 +8,21 @@ body {
     background-color: #e3e3e3;
     flex-direction: column;
     text-align: center;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
-
 #game-container {
     text-align: center;
     background-color: #fff;
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
+    width: 350px;
     box-sizing: border-box;
     margin-top: 20px;
     position: relative;
+    display: none;
 }
-
 #menu-container {
     display: none;
     justify-content: center;
@@ -31,7 +31,6 @@ body {
     margin-bottom: 20px;
     max-width: 400px;
 }
-
 #menu-container button {
     padding: 8px 12px;
     font-size: 14px;
@@ -47,15 +46,13 @@ body {
 #menu-container button:hover {
     background-color: #45a049;
 }
-
-
 #give-up-btn {
     position: absolute;
-    top: 10px;
+    top: 27px;
     right: 10px;
     padding: 5px 10px;
     font-size: 16px;
-    font-weight: blod;
+    font-weight: bold;
     background-color: red;
     color: white;
     border: none;
@@ -63,21 +60,17 @@ body {
     width: 40px;
     cursor: pointer;
 }
-
 #give-up-btn:hover {
     background-color: salmon;
 }
-
-
-
 input[type="text"] {
     padding: 12px;
+    position: relative;
     margin-top: 15px;
     width: 250px;
     font-size: 16px;
     border-radius: 5px;
-    border: 1px solid #ccc;
-   z-index: 2;
+    z-index: 1;
 }
 #give-up-confirmation {
     display: none;
@@ -90,9 +83,8 @@ input[type="text"] {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    z-index: 3;
+    z-index: 5;
 }
-
 #give-up-confirmation button {
     padding: 5px 10px;
     font-size: 16px;
@@ -101,26 +93,21 @@ input[type="text"] {
     border-radius: 5px;
     margin: 10px;
 }
-
 #yes-btn {
     background-color: #f44336;
     color: white;
+    font-weight: bold;
 }
-
 #yes-btn:hover {
     background-color: #d32f2f;
 }
-
 #no-btn {
     background-color: #4CAF50;
     color: white;
 }
-
 #no-btn:hover {
     background-color: #45a049;
 }
-
-
 button {
     padding: 12px 18px;
     margin-top: 13px;
@@ -131,30 +118,27 @@ button {
     border: none;
     border-radius: 5px;
     width: 250px;
+    position: relative;
 }
-
 button:hover {
     background-color: #45a049;
 }
-
 #message {
     margin-top: 20px;
     font-size: 18px;
     color: #ff0000;
 }
-
 h1 {
     font-size: 24px;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
-
 #score {
     font-size: 20px;
     margin-top: 10px;
     font-weight: bold;
     color: #4CAF50;
 }
-
 #clear-screen {
     display: none;
     text-align: center;
@@ -164,12 +148,10 @@ h1 {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 400px;
 }
-
 #clear-screen h2 {
     color: #4CAF50;
     font-size: 30px;
 }
-
 #clear-screen button {
     background-color: #4CAF50;
     color: white;
@@ -181,25 +163,22 @@ h1 {
     margin-top: 20px;
     cursor: pointer;
 }
-
 #clear-screen button:hover {
     background-color: #45a049;
 }
-
 .correct-answer {
     font-size: 100px;
     color: red;
     margin-top: 20px;
     position: absolute;
+    z-index: 6;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 .hidden {
     display: none;
 }
-
 .answered {
     background-color: #4CAF50;
 }
@@ -213,17 +192,14 @@ h1 {
     margin: 20px auto;
     display: none; /* 初期状態では非表示 */
 }
-
 #explanation-screen h2 {
     font-size: 24px;
     margin-bottom: 20px;
 }
-
 #explanation-content {
     margin-top: 20px;
     font-size: 16px;
 }
-
 button {
     padding: 8px 12px;
     font-size: 14px;
@@ -233,8 +209,8 @@ button {
     color: white;
     border: none;
     border-radius: 5px;
+    z-index: 2;
 }
-
 button:hover {
     background-color: #45a049;
 }
@@ -244,10 +220,60 @@ button:hover {
     height: 100%;
     overflow: visible;
 }
-
 .hiragana {
     position: absolute;
     font-family: 'Noto Sans JP', sans-serif;
-    color: lightgray;
+    color: black;
+    width: 100%;
+    height: 500px;
     transform-origin: center;
-    z-index: 1;
+    z-index: 0;
+}
+img {
+    position: relative; 
+    z-index: 4; 
+    transition: transform 0.3s ease; /* 回転をスムーズにアニメーション */
+}
+img:hover {
+    transform: rotate(90deg) scale(1.9); 
+}
+#start-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* 黒の半透明 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1000;
+}
+#start-screen h1 {
+    font-size: 3rem;
+    color: white;
+    margin-bottom: 20px;
+}
+#start-button {
+    font-size: 2rem;
+    padding: 10px 30px;
+    cursor: pointer;
+    border: none;
+    background-color: #ffcc00;
+    color: black;
+    border-radius: 10px;
+}
+        /* ゲーム画面を最初は隠す */
+#game-screen {
+    display: none;
+}
+        /* タイマーのスタイル */
+#timer {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.5rem;
+    color: black;
+}
