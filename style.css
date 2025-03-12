@@ -20,7 +20,7 @@ body {
     left: 50%;
     transform: scale(2);
     box-sizing: border-box;
-    margin-top: 20px;
+    margin-top: 500px;
     position: relative;
     display: none;
 }
