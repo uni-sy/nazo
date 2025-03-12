@@ -8,7 +8,6 @@ body {
     background-color: #e3e3e3;
     flex-direction: column;
     text-align: center;
-    overflow-x: hidden;
     overflow-y: scroll;
 }
 #game-container {
@@ -21,6 +20,8 @@ body {
     box-sizing: border-box;
     margin-top: 20px;
     position: relative;
+    top: 50%;
+    left: 50%;
     display: none;
 }
 #menu-container {
