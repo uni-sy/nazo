@@ -1,3 +1,4 @@
+        /* CSSコードをここに記述 */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
@@ -8,7 +9,8 @@ body {
     background-color: #e3e3e3;
     flex-direction: column;
     text-align: center;
-    overflow-y: auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 #game-container {
     text-align: center;
@@ -16,12 +18,11 @@ body {
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 95%;
-    left: 50%;
-    transform: scale(2);
+    width: 350px;
     box-sizing: border-box;
-    margin-top: 500px;
+    margin-top: 20px;
     position: relative;
+    transform: scale(2);
     display: none;
 }
 #menu-container {
@@ -52,7 +53,7 @@ body {
     top: 27px;
     right: 10px;
     padding: 5px 10px;
-    font-size: 160px;
+    font-size: 16px;
     font-weight: bold;
     background-color: red;
     color: white;
@@ -71,6 +72,7 @@ input[type="text"] {
     width: 250px;
     font-size: 16px;
     border-radius: 5px;
+    solid: #808080;
     z-index: 1;
 }
 #give-up-confirmation {
@@ -79,7 +81,7 @@ input[type="text"] {
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    position: relative;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -163,6 +165,7 @@ h1 {
     width: 250px;
     margin-top: 20px;
     cursor: pointer;
+    z-index: ;
 }
 #clear-screen button:hover {
     background-color: #45a049;
