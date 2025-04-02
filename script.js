@@ -3,9 +3,9 @@ let solvedPuzzles = 0; // 解いた問題数
 let reachedPuzzle9 = false; // 問9に進んだかどうか
 const puzzles = [
     { title: "問題1",question: "赤つないで読もう", correctAnswer: "1", hint: "ヒント1", image: "7.png" },
-    { title: "問題二",question: "謎を解け", correctAnswer: "2", hint: "ヒント2", image: "スクリーンショット 2024-06-12 185222.png" },
-    { title: "問題3",question: "⇦をつなげ", correctAnswer: "3", hint: "ヒント3", image: "3-1.png" },
-    { title: "問題4",question: "ほしを作って△を読もう", correctAnswer: "4", hint: "ヒント4", image: "" },
+    { title: "問題2",question: "謎を解け", correctAnswer: "2", hint: "ヒント2", image: "スクリーンショット 2024-06-12 185222.png" },
+    { title: "問題3",question: "➡をつなげ", correctAnswer: "3", hint: "ヒント3", image: "3-1.png" },
+    { title: "問題4",question: "ほしを作って△を読もう", correctAnswer: "4", hint: "ヒント4", image: "7.png" },
     { title: "問題5",question: "問題から仲間外れを見つけ出し、この謎の指示に従おう", correctAnswer: "5", hint: "ヒント5", image: "" },
     { title: "問題6",question: "問題6", correctAnswer: "6", hint: "ヒント6", image: "" },
     { title: "問題7",question: "none", correctAnswer: "7", hint: "ヒント7", image: "7.png" },
@@ -186,20 +186,20 @@ function showExplanationScreen() {
 }
 // 配置するひらがなのデータ
 const hiraganaData = [
-    { text: 'は', top: 130, left: -357, fontSize: '20px', rotate: 90 },
+    { text: 'は', top: 130, left: -367, fontSize: '20px', rotate: 90 },
     { text: 'い', top: 150, left: -3, fontSize: '30px', rotate: 45 }, // 45度回転
-    { text: 'A', top: 351, left: 81, fontSize: '30px', rotate: 270 }, // -30度回転
+    { text: 'A', top: 351, left: 79, fontSize: '30px', rotate: 270 }, // -30度回転
     { text: 'え', top: -230, left: -50, fontSize: '30px', rotate: 200 }, // 90度回転
     { text: 'お', top: 90, left: -200, fontSize: '25px', rotate: 13 }, // 135度回転
-    { text: 'た', top: -90, left: 158, fontSize: '25px', rotate: 180 },
+    { text: 'た', top: -100, left: 158, fontSize: '25px', rotate: 180 },
     { text: 'う', top: 880, left: -50, fontSize: '30px', rotate: 0 }, // 180度回転
-    { text: 'よ', top: -188, left: -287, fontSize: '35px', rotate: 87 }, // -60度回転
-    { text: 'め', top: 0, left: 40, fontSize: '30px', rotate: 30 }, // 30度回転
-    { text: 'の', top: 365, left: 340, fontSize: '24px', rotate: 230 }, // -90度回転
+    { text: 'よ', top: -198, left: -287, fontSize: '35px', rotate: 87 }, // -60度回転
+    { text: 'め', top: -20, left: 40, fontSize: '30px', rotate: 30 }, // 30度回転
+    { text: 'の', top: 365, left: 335, fontSize: '24px', rotate: 230 }, // -90度回転
     { text: 'さ', top: 290, left: 68, fontSize: '25px', rotate: 280 },
-    { text: '？', top: 200, left: 100, fontSize: '25px', rotate: -13},
+    { text: '？', top: 180, left: 100, fontSize: '25px', rotate: -13},
     { text: 'M', top: 200, left: 100, fontSize: '28px', rotate: 23},
-    { text: '魑', top: 250, left: 150, fontSize: '29px', rotate:335},
+    { text: '魑', top: 250, left: 170, fontSize: '29px', rotate:335},
     { text: 'へ', top: -90, left: -320, fontSize: '26px', rotate: 135},
     { text: '！', top:200, left: 40, fontSize: '30px', rotate: 23},
     { text: 'D', top: 300, left: 30, fontSize: '20px', rotate: 345}
