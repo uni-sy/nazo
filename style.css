@@ -13,6 +13,8 @@ body {
 #game-container {
     text-align: center;
     background-color: #fff;
+    overflow-y: auto;
+    overflow-x: hidden;
     padding: 40px;
     margin-top: 40px;
     border-radius: 15px;
