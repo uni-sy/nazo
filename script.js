@@ -188,7 +188,7 @@ function showExplanationScreen() {
 const hiraganaData = [
     { text: 'は', top: 130, left: -367, fontSize: '20px', rotate: 90 },
     { text: 'い', top: 150, left: -3, fontSize: '30px', rotate: 45 }, // 45度回転
-    { text: 'A', top: 351, left: 79, fontSize: '30px', rotate: 270 }, // -30度回転
+    { text: 'A', top: 351, left: 85, fontSize: '30px', rotate: 270 }, // -30度回転
     { text: 'え', top: -230, left: -50, fontSize: '30px', rotate: 200 }, // 90度回転
     { text: 'お', top: 90, left: -200, fontSize: '25px', rotate: 13 }, // 135度回転
     { text: 'た', top: -100, left: 158, fontSize: '25px', rotate: 180 },
