@@ -69,6 +69,7 @@ function displayPuzzle() {
     document.getElementById('puzzle-title').textContent = puzzle.title;
     // 問題3のテキストに改行を追加
     document.getElementById('puzzle-text').textContent = puzzle.question;
+    
     // 画像が存在する場合、画像を表示
     if (puzzle.image) {
         const imgElement = document.createElement('img');
