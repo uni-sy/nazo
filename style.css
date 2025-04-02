@@ -8,7 +8,6 @@ body {
     background-color: #e3e3e3;
     flex-direction: column;
     text-align: center;
-    overflow-x: hidden;
     overflow-y: scroll;
 }
 #game-container {
@@ -17,7 +16,7 @@ body {
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 350px;
+    width: 95%;
     box-sizing: border-box;
     margin-top: 20px;
     position: relative;
@@ -111,17 +110,17 @@ input[type="text"] {
     background-color: #45a049;
 }
 button {
-    padding: 12px 18px;
-    margin-top: 13px;
-    font-size: 16px;
+    width: 250px;
+    position: relative;
+    padding: 8px 12px;
+    font-size: 14px;
+    margin-top: 20px;
     cursor: pointer;
     background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
-    width: 250px;
-    position: relative;
-    z-index: ;
+    z-index: 2;
 }
 button:hover {
     background-color: #45a049;
@@ -204,20 +203,7 @@ h1 {
     margin-top: 20px;
     font-size: 16px;
 }
-button {
-    padding: 8px 12px;
-    font-size: 14px;
-    margin-top: 20px;
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    z-index: 2;
-}
-button:hover {
-    background-color: #45a049;
-}
+
 #container {
     position: relative;
     width: 100%;
