@@ -215,7 +215,7 @@ h1 {
 .hiragana {
     position: absolute;
     font-family: 'Noto Sans JP', sans-serif;
-    color: gray;
+    color: #808080;
     width: 100%;
     height: 500px;
     transform-origin: center;
