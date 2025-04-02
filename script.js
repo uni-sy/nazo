@@ -192,8 +192,8 @@ const hiraganaData = [
     { text: 'え', top: -230, left: -50, fontSize: '30px', rotate: 200 }, // 90度回転
     { text: 'お', top: 90, left: -200, fontSize: '25px', rotate: 13 }, // 135度回転
     { text: 'た', top: -100, left: 158, fontSize: '25px', rotate: 180 },
-    { text: 'う', top: 880, left: -50, fontSize: '30px', rotate: 0 }, // 180度回転
-    { text: 'よ', top: -198, left: -287, fontSize: '35px', rotate: 87 }, // -60度回転
+    { text: 'う', top: 880, left: -40, fontSize: '30px', rotate: 0 }, // 180度回転
+    { text: 'よ', top: -198, left: -277, fontSize: '35px', rotate: 87 }, // -60度回転
     { text: 'め', top: -20, left: 40, fontSize: '30px', rotate: 30 }, // 30度回転
     { text: 'の', top: 365, left: 335, fontSize: '24px', rotate: 230 }, // -90度回転
     { text: 'さ', top: 290, left: 68, fontSize: '25px', rotate: 280 },
