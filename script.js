@@ -3,8 +3,8 @@ let solvedPuzzles = 0; // 解いた問題数
 let reachedPuzzle9 = false; // 問9に進んだかどうか
 const puzzles = [
     { title: "問題1",question: "赤つないで読もう", correctAnswer: "1", hint: "ヒント1", image: "7.png" },
-    { title: "問題二",question: "謎を解け", correctAnswer: "2", hint: "ヒント2", image: "スクリーンショット 2024-06-12 185222.png" },
-    { title: "問題3",question: "➡をつなげ", correctAnswer: "3", hint: "ヒント3", image: "3-1.png" },
+    { title: "問題二",question: "謎を解け", c⇦orrectAnswer: "2", hint: "ヒント2", image: "スクリーンショット 2024-06-12 185222.png" },
+    { title: "問題3",question: "⇦をつなげ", correctAnswer: "3", hint: "ヒント3", image: "3-1.png" },
     { title: "問題4",question: "ほしを作って△を読もう", correctAnswer: "4", hint: "ヒント4", image: "" },
     { title: "問題5",question: "問題から仲間外れを見つけ出し、この謎の指示に従おう", correctAnswer: "5", hint: "ヒント5", image: "" },
     { title: "問題6",question: "問題6", correctAnswer: "6", hint: "ヒント6", image: "" },
@@ -68,18 +68,7 @@ function displayPuzzle() {
     // 題名を表示
     document.getElementById('puzzle-title').textContent = puzzle.title;
     // 問題3のテキストに改行を追加
-    if (currentPuzzle === 3) {
-       const rotatedText = document.createElement('div');
-        rotatedText.innerHTML = "↓<br>を<br>つ<br>な<br>げ";  // <br> タグを使って改行
-     rotatedText.style.transform = 'rotate(90deg)';
-       rotatedText.style.transformOrigin = 'center';
-      rotatedText.style.margin = '20px auto';
-      rotatedText.style.display = 'inline-block';
-     document.getElementById('puzzle-text').innerHTML = '';
-      document.getElementById('puzzle-text').appendChild(rotatedText);
-    } else {
     document.getElementById('puzzle-text').textContent = puzzle.question;
-}
     // 画像が存在する場合、画像を表示
     if (puzzle.image) {
         const imgElement = document.createElement('img');
