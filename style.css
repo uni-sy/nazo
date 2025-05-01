@@ -42,7 +42,7 @@ body {
     border: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    width: 80px;
+    width: 30%;
     margin-top: 12px;
 }
 #menu-container button:hover {
@@ -112,7 +112,7 @@ input[type="text"] {
     background-color: #45a049;
 }
 button {
-    width: 250px;
+    width: 100%;
     position: relative;
     padding: 8px 12px;
     font-size: 14px;
